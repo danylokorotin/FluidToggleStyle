@@ -5,23 +5,19 @@
 //  Created by danylo.net on 8/1/22.
 //
 
-import Foundation
 import SwiftUI
 
 struct FluidToggle: ToggleStyle {
     var turnsOff: Bool = true
-    
     let color: Color
     
     var myColorLite: Color {
         return color.lighten(amount: 0.4)
     }
-    
     let myGray = Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1))
     
     func makeBody(configuration: Configuration) -> some View {
         return ZStack {
-            
             Ellipse()
                 .fill(configuration.isOn ? color : (turnsOff ? myGray : color))
                 .frame(width: configuration.isOn ? 22 : 29, height: configuration.isOn ? 22 : 5)
@@ -37,10 +33,8 @@ struct FluidToggle: ToggleStyle {
             RoundedRectangle(cornerRadius: 60)
                 .frame(width: 40, height: 5)
                 .shadow(color: configuration.isOn ? color.opacity(0.6) : Color.clear, radius: 6, x: 0, y: 0)
-            
                 .foregroundColor(configuration.isOn ? color : (turnsOff ? myGray : color))
                 .animation(.linear(duration: 0.2), value: configuration.isOn)
-            
             
             if configuration.isOn {
                 Circle()
@@ -59,7 +53,6 @@ struct FluidToggle: ToggleStyle {
                             .shadow(color: myColorLite, radius: 3, x: 1, y: 1)
                             .shadow(color: myColorLite, radius: 3, x: 1, y: 1)
                     )
-                
             } else {
                 Circle()
                     .fill(turnsOff ? myGray : color)
@@ -76,7 +69,6 @@ struct FluidToggle: ToggleStyle {
                             .shadow(color: myColorLite, radius: 3, x: 0, y: 0)
                             .shadow(color: myColorLite, radius: 3, x: 0, y: 0)
                             .shadow(color: myColorLite, radius: 3, x: 0, y: 0)
-                            .shadow(color: myColorLite, radius: 3, x: 0, y: 0)
                     )
             }
         }
@@ -86,3 +78,4 @@ struct FluidToggle: ToggleStyle {
         }
     }
 }
+
