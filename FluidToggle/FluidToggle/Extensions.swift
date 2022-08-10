@@ -5,19 +5,15 @@
 //  Created by danylo.net on 8/1/22.
 //
 
-import Foundation
 import SwiftUI
 
 extension Animation {
-    
     static var bouncy: Animation {
         return .spring(response: 0.5, dampingFraction: 0.45, blendDuration: 1)
     }
-    
 }
 
 struct Curve: Shape {
-    
     func path(in rect: CGRect) -> Path {
         var path = Path()
         
@@ -50,5 +46,3 @@ extension Color {
         return Color(red: Double(min(r1 + dm, 1)), green: Double(min(g1 + dm, 1)), blue: Double(min(b1 + dm, 1)))
     }
 }
-
-
