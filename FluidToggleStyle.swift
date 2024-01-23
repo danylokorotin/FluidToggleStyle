@@ -62,7 +62,7 @@ struct FluidToggle: ToggleStyle {
             
             RoundedRectangle(cornerRadius: 60)
                 .frame(width: 40, height: 5)
-                .shadow(color: linearAnimBool ? color : Color.clear, radius: 6, x: 0, y: 0)
+                .shadow(color: turnsOff ? (linearAnimBool ? color : Color.clear) : color, radius: 6, x: 0, y: 0)
                 .foregroundColor(linearAnimBool ? color : (turnsOff ? myGray : color))
                 .animation(.linear, value: linearAnimBool)
                 .zIndex(2)
